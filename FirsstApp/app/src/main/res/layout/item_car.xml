@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_id"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/mer"/>
+    <TextView
+        android:id="@+id/text_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/image_id"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/custom_dialogue_id"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Success"
+        android:textSize="35sp"
+        android:textColor="#2196F3"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/iconschecked"/>
+
+    <Button
+        android:id="@+id/okay_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Okay"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:backgroundTint="#456783"
+        android:textSize="30dp"/>
+
+
+
+</LinearLayout>
