@@ -35,25 +35,25 @@ public class MainActivity extends AppCompatActivity {
 
         Model m2 = new Model();
         m2.setImg(R.mipmap.ic_launcher);
-        m2.setName("Nirav");
+        m2.setName("Shehjad");
         m2.setChat("Hi");
         list.add(m2);
 
         Model m3 = new Model();
         m3.setImg(R.mipmap.ic_launcher);
-        m3.setName("Nirav");
+        m3.setName("LAlit");
         m3.setChat("Hi");
         list.add(m3);
 
         Model m4 = new Model();
         m4.setImg(R.mipmap.ic_launcher);
-        m4.setName("Nirav");
+        m4.setName("Pro");
         m4.setChat("Hi");
         list.add(m4);
 
         Model m5 = new Model();
         m5.setImg(R.mipmap.ic_launcher);
-        m5.setName("Nirav");
+        m5.setName("Anshu");
         m5.setChat("Hi");
         list.add(m5);
 
