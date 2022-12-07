@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<records>
+    <employee>
+        <name>c</name>
+        <profession>bde</profession>
+    </employee>
+
+    <employee>
+        <name>c++</name>
+        <profession>analyst</profession>
+    </employee>
+
+    <employee>
+        <name>photoshop</name>
+        <profession>designer</profession>
+    </employee>
+
+    <employee>
+        <name>java</name>
+        <profession>coder</profession>
+    </employee>
+
+    <employee>
+        <name>selenium</name>
+        <profession>tester</profession>
+    </employee>
+</records>

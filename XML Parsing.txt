@@ -1,0 +1,227 @@
+Pull Parser : 
+1.XML
+<?xml version="1.0"?>
+<class>
+    <student>
+        <name>c</name>
+        <rollno>1</rollno>
+        <age>10</age>
+    </student>
+
+    <student>
+        <name>c++</name>
+        <rollno>2</rollno>
+        <age>11</age>
+    </student>
+
+    <student>
+        <name>java</name>
+        <rollno>3</rollno>
+        <age>12</age>
+    </student>
+</class>
+
+
+2.Layout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+         android:id="@+id/tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</LinearLayout>
+
+
+
+3.MainActivity
+package com.example.xmlparsing;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.TextView;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.InputStream;
+
+public class MainActivity extends AppCompatActivity {
+    TextView t1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        t1 = findViewById(R.id.tv_id);
+
+        InputStream stream = this.getResources().openRawResource(R.raw.student);
+
+        try {
+            XmlPullParserFactory xmlPullParserFactory = XmlPullParserFactory.newInstance();
+            XmlPullParser parser = xmlPullParserFactory.newPullParser();
+            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+            parser.setInput(stream, null);
+
+            String tag_name = "", text = "";
+            int event = parser.getEventType();
+            while (event != XmlPullParser.END_DOCUMENT) {
+                tag_name = parser.getName();
+                switch (event) {
+                    case XmlPullParser.START_TAG:
+                        break;
+                    case XmlPullParser.TEXT:
+                        text = parser.getText();
+                        break;
+                    case XmlPullParser.END_TAG:
+                        switch (tag_name) {
+                            case "name":
+                                t1.append("Name : " + text + "\n");
+                                break;
+                            case "rollno":
+                                t1.append("Roll no : " + text + "\n");
+                                break;
+                            case "age":
+                                t1.append("Age : " + text + "\n");
+                                break;
+                        }
+                        break;
+                }
+                event = parser.next();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+			
+
+
+
+DOM PARSING: 
+
+inside assets folder
+
+1.XML
+<?xml version="1.0"?>
+<recors>
+    <employee>
+        <name>c</name>
+        <profession>bde</profession>
+    </employee>
+
+    <employee>
+        <name>c++</name>
+        <profession>analyst</profession>
+    </employee>
+
+    <employee>
+        <name>photoshop</name>
+        <profession>designer</profession>
+    </employee>
+
+    <employee>
+        <name>java</name>
+        <profession>coder</profession>
+    </employee>
+
+    <employee>
+        <name>selenium</name>
+        <profession>tester</profession>
+    </employee>
+</recors>
+
+
+2.LAyout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/linearlayout_id"
+    tools:context=".MainActivity">
+
+
+</LinearLayout>
+
+3.MainActivity
+package com.example.domparsing;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import java.io.InputStream;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        LinearLayout layout = findViewById(R.id.linearlayout_id);
+
+        try {
+            InputStream in = getAssets().open("file.xml");
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document d = builder.parse(in);
+            Element element = d.getDocumentElement();
+            element.normalize(); 
+
+            NodeList nodeList = d.getElementsByTagName("employee");
+            for(int i=0;i<nodeList.getLength();i++){
+                TextView t1 = new TextView(this);
+                Node node = nodeList.item(i);
+                if(node.getNodeType() == Node.ELEMENT_NODE){
+                    Element element1 = (Element)node;
+                    t1.setTextSize(15);
+                    t1.setTextColor(Color.BLACK);
+                    t1.setText(t1.getText()+"Name : "+getValue("name",element1)+"\n");
+                    t1.setText(t1.getText()+"Profession : "+getValue("profession",element1)+"\n");
+                    layout.addView(t1);
+                }
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static String getValue(String tag, Element e){
+        NodeList node = e.getElementsByTagName(tag).item(0).getChildNodes();
+        Node nodes = node.item(0);
+        return nodes.getNodeValue();
+    }
+}
+
+
+
