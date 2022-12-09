@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<class>
+    <students>
+        <name>Nirav</name>
+        <mobile>852963741</mobile>
+        <course>Android</course>
+    </students>
+
+    <students>
+        <name>Raj</name>
+        <mobile>33992963741</mobile>
+        <course>JAVA</course>
+    </students>
+    <students>
+        <name>Krunal</name>
+        <mobile>789654123</mobile>
+        <course>HTML</course>
+    </students>
+    <students>
+        <name>Lalit</name>
+        <mobile>852975541</mobile>
+        <course>Android+</course>
+    </students>
+    <students>
+        <name>Jainik</name>
+        <mobile>852963656741</mobile>
+        <course>Full stack dev</course>
+    </students>
+    <students>
+        <name>Chirag</name>
+        <mobile>895563741</mobile>
+        <course>React</course>
+    </students>
+    <students>
+        <name>SUKETU</name>
+        <mobile>985623985623</mobile>
+        <course>hardware networking  </course>
+    </students>
+<!--    <students>-->
+<!--        <name>Kamlesh</name>-->
+<!--        <mobile>8555693741</mobile>-->
+<!--        <course>WD</course>-->
+<!--    </students>-->
+
+</class>
