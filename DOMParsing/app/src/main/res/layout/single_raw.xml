@@ -12,7 +12,7 @@
 
         <TextView
             android:id="@+id/name_c_id"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name"
             android:textColor="@color/black"
@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/mobile_c_id"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name_c_id"
             android:text="Mobile"
@@ -29,12 +29,26 @@
 
         <TextView
             android:id="@+id/course_c_id"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mobile_c_id"
             android:text="course"
             android:textColor="@color/black"
             android:textSize="16dp" />
+        <Button
+            android:id="@+id/edit_BTN"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="edit"/>
+        <Button
+            android:id="@+id/delete_BTN"
+            android:layout_alignParentEnd="true"
+
+            android:layout_below="@id/edit_BTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DELETE"/>
 
 
     </RelativeLayout>
