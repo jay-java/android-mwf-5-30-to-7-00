@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.tv);
-
         textView.setText("");
         //1. retrofit object
         Retrofit retrofit = new Retrofit.Builder()
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         Call<List<Model>> list = a.getAllModel();
         list.enqueue(new Callback<List<Model>>() {
             @Override
-
             //4. response objectc from retrofit list api
             public void onResponse(Call<List<Model>> call, Response<List<Model>> response) {
                 List<Model> list = response.body();
